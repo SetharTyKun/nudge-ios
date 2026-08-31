@@ -1,0 +1,23 @@
+## User-specific Xcode state
+xcuserdata/
+
+## Xcode project internals worth excluding
+*.xcscmblueprint
+*.xccheckout
+
+## Build artifacts
+DerivedData/
+build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Swift Package Manager
+.swiftpm/
+.build/
+
+## CocoaPods (only relevant if you ever use it — safe to include either way)
+Pods/
+
+## macOS system files
+.DS_Store
