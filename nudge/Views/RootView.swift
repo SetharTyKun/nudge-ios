@@ -12,7 +12,7 @@ struct RootView: View {
     @Environment(NotesViewModel.self) private var notesViewModel
     
     var body: some View {
-        VStack {
+        Group {
             if(authViewModel.isLoggedIn == false) {
                 SignInView()
             } else {

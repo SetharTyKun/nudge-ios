@@ -26,7 +26,8 @@ struct SignUpView: View {
                 
                 Text("Username".uppercased())
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 8)
@@ -36,7 +37,7 @@ struct SignUpView: View {
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .keyboardType(.emailAddress)
-                    .padding(12)
+                    .padding(10)
                     .background(Color(uiColor: .secondarySystemGroupedBackground))
                     .cornerRadius(16)
                     .overlay(
@@ -50,7 +51,8 @@ struct SignUpView: View {
                 
                 Text("Email".uppercased())
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 8)
@@ -60,7 +62,7 @@ struct SignUpView: View {
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .keyboardType(.emailAddress)
-                    .padding(12)
+                    .padding(10)
                     .background(Color(uiColor: .secondarySystemGroupedBackground))
                     .cornerRadius(16)
                     .overlay(
@@ -74,7 +76,8 @@ struct SignUpView: View {
                 
                 Text("Password".uppercased())
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 8)
@@ -90,7 +93,7 @@ struct SignUpView: View {
                 }
                 .frame(height: 30)
                 .textInputAutocapitalization(.never)
-                .padding(12)
+                .padding(10)
                 .background(Color(uiColor: .secondarySystemGroupedBackground))
                 .cornerRadius(16)
                 .overlay(
@@ -104,7 +107,9 @@ struct SignUpView: View {
                         seePassword.toggle()
                     } label: {
                         Image(systemName: seePassword ? "eye" : "eye.slash")
-                            .padding(.trailing, 12)
+                            .resizable()
+                            .frame(width: 20, height: 15)
+                            .padding(.trailing, 16)
                             .tint(.secondary)
                     }
                 }
@@ -114,7 +119,8 @@ struct SignUpView: View {
                 
                 Text("Verified Password".uppercased())
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 8)
@@ -130,7 +136,7 @@ struct SignUpView: View {
                 }
                 .frame(height: 30)
                 .textInputAutocapitalization(.never)
-                .padding(12)
+                .padding(10)
                 .background(Color(uiColor: .secondarySystemGroupedBackground))
                 .cornerRadius(16)
                 .overlay(
@@ -144,7 +150,9 @@ struct SignUpView: View {
                         seeVerifiedPassword.toggle()
                     } label: {
                         Image(systemName: seeVerifiedPassword ? "eye" : "eye.slash")
-                            .padding(.trailing, 12)
+                            .resizable()
+                            .frame(width: 20, height: 15)
+                            .padding(.trailing, 16)
                             .tint(.secondary)
                     }
                 }

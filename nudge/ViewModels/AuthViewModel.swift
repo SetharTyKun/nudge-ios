@@ -15,10 +15,10 @@ final class AuthViewModel {
         self.token != nil
     }
     
-    
     init() {
-        self.token = UserDefaults.standard.string(forKey: "access_token")
-//        UserDefaults.standard.removeObject(forKey: "access_token")
+        if let token = SecureVault.read(for: "access_token", reason: "Authenicate to unlock") {
+            self.token = String(data: token, encoding: .utf8)
+        }
     }
     
     func register(_ user: UserCreate) async throws -> UserResponse {
@@ -30,12 +30,19 @@ final class AuthViewModel {
     func login(_ username: String, _ password: String) async throws {
         let token = try await NoteAPI.login(username, password)
         
-        UserDefaults.standard.set(token.accessToken, forKey: "access_token")
         self.token = token.accessToken
+        SecureVault.save(token.accessToken, for: "access_token")
+    }
+    
+    func loginWithGoogle(_ idToken: String) async throws {
+        let token = try await NoteAPI.loginWithGoogle(idToken)
+        
+        self.token = token.accessToken
+        SecureVault.save(token.accessToken, for: "access_token")
     }
     
     func logout() {
-        UserDefaults.standard.removeObject(forKey: "access_token")
+        SecureVault.delete(for: "access_token")
         self.token = nil
         currentUser = nil
     }

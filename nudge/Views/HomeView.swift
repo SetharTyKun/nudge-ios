@@ -82,16 +82,16 @@ struct HomeView: View {
                                 Section {
                                     VStack(alignment: .leading) {
                                         Text(result.title)
-                                            .font(.system(size: 18, weight: .bold))
+                                            .foregroundStyle(.primary)
+                                            .font(.headline.bold())
                                             .lineLimit(1)
 
-                                        Spacer().frame(height: 8)
 
                                         Text(result.content.isEmpty ? "No content" : result.content)
-                                            .font(.system(size: 16))
-                                            .lineLimit(4)
-                                            .lineSpacing(-3)
                                             .foregroundStyle(.secondary)
+                                            .font(.body)
+                                            .lineLimit(3)
+                                            .lineSpacing(-1)
 
                                         Spacer()
 
@@ -105,7 +105,7 @@ struct HomeView: View {
                                     .background(Color(uiColor: .secondarySystemGroupedBackground))
                                     .cornerRadius(16)
                                 } header: {
-                                    Text("JUST DO IT")
+                                    Text("Primary")
                                         .font(.system(size: 16, weight: .bold))
                                         .foregroundStyle(.secondary)
                                 }
@@ -124,16 +124,17 @@ struct HomeView: View {
                                             
                                             VStack(alignment: .leading) {
                                                 Text(result.title)
-                                                    .font(.system(size: 18, weight: .bold))
+                                                    .foregroundStyle(.primary)
+                                                    .font(.headline.bold())
                                                     .lineLimit(1)
 
-                                                Spacer().frame(height: 8)
 
                                                 Text(result.content.isEmpty ? "No content" : result.content)
-                                                    .font(.system(size: 16))
-                                                    .lineLimit(3)
-                                                    .lineSpacing(-3)
                                                     .foregroundStyle(.secondary)
+                                                    .font(.body)
+                                                    .lineLimit(3)
+                                                    .lineSpacing(-1)
+                                                    
 
                                                 Spacer()
 
@@ -142,7 +143,7 @@ struct HomeView: View {
                                                     .foregroundStyle(.secondary)
                                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                             }
-                                            .padding()
+                                            .padding(12)
                                             .frame(maxWidth: .infinity, minHeight: 160, alignment: .topLeading)
                                             .background(Color(uiColor: .secondarySystemGroupedBackground))
                                             .cornerRadius(16)
@@ -150,7 +151,7 @@ struct HomeView: View {
                                     }
                                     
                                 } header: {
-                                    Text("RECENT NOTES")
+                                    Text("Recent")
                                         .font(.system(size: 16, weight: .bold))
                                         .foregroundStyle(.secondary)
                                 }

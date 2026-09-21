@@ -7,33 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C703DFCD305FCA070012A2FA /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C703DFCB305FCA070012A2FA /* Release.xcconfig */; };
+		C703DFCE305FCA070012A2FA /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C703DFCA305FCA070012A2FA /* Debug.xcconfig */; };
+		C70E2D393060E3AB00393E61 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C70E2D383060E3AB00393E61 /* .gitignore */; };
+		C70E2D3B3060E60100393E61 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C70E2D3A3060E60100393E61 /* Secrets.xcconfig */; };
 		C74E8F2E3043F0CF006A610B /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C74E8F2D3043F0CF006A610B /* GoogleSignIn */; };
 		C74E8F303043F0CF006A610B /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C74E8F2F3043F0CF006A610B /* GoogleSignInSwift */; };
-		C74E8F323043F117006A610B /* client_832211937583-53b0chrmr5bpcbgupmtad4dmfegctu2f.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = C74E8F313043F117006A610B /* client_832211937583-53b0chrmr5bpcbgupmtad4dmfegctu2f.apps.googleusercontent.com.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C73AFDD93032C74800B929B8 /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C74E8F313043F117006A610B /* client_832211937583-53b0chrmr5bpcbgupmtad4dmfegctu2f.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "client_832211937583-53b0chrmr5bpcbgupmtad4dmfegctu2f.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		C703DFCA305FCA070012A2FA /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		C703DFCB305FCA070012A2FA /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		C70E2D383060E3AB00393E61 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C70E2D3A3060E60100393E61 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		C73AFDD93032C74800B929B8 /* nudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C74E8F343043F360006A610B /* Exceptions for "NotesApp" folder in "NotesApp" target */ = {
+		C7834B483060EC8400AB93D9 /* Exceptions for "nudge" folder in "nudge" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = C73AFDD83032C74800B929B8 /* NotesApp */;
+			target = C73AFDD83032C74800B929B8 /* nudge */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C73AFDDB3032C74800B929B8 /* NotesApp */ = {
+		C73AFDDB3032C74800B929B8 /* nudge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C74E8F343043F360006A610B /* Exceptions for "NotesApp" folder in "NotesApp" target */,
+				C7834B483060EC8400AB93D9 /* Exceptions for "nudge" folder in "nudge" target */,
 			);
-			path = NotesApp;
+			path = nudge;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -51,19 +57,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C703DFCC305FCA070012A2FA /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				C703DFCA305FCA070012A2FA /* Debug.xcconfig */,
+				C703DFCB305FCA070012A2FA /* Release.xcconfig */,
+				C70E2D3A3060E60100393E61 /* Secrets.xcconfig */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		C73AFDD03032C74800B929B8 = {
 			isa = PBXGroup;
 			children = (
-				C73AFDDB3032C74800B929B8 /* NotesApp */,
+				C70E2D383060E3AB00393E61 /* .gitignore */,
+				C703DFCC305FCA070012A2FA /* Configs */,
+				C73AFDDB3032C74800B929B8 /* nudge */,
 				C73AFDDA3032C74800B929B8 /* Products */,
-				C74E8F313043F117006A610B /* client_832211937583-53b0chrmr5bpcbgupmtad4dmfegctu2f.apps.googleusercontent.com.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		C73AFDDA3032C74800B929B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C73AFDD93032C74800B929B8 /* NotesApp.app */,
+				C73AFDD93032C74800B929B8 /* nudge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,9 +88,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C73AFDD83032C74800B929B8 /* NotesApp */ = {
+		C73AFDD83032C74800B929B8 /* nudge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C73AFDE43032C74800B929B8 /* Build configuration list for PBXNativeTarget "NotesApp" */;
+			buildConfigurationList = C73AFDE43032C74800B929B8 /* Build configuration list for PBXNativeTarget "nudge" */;
 			buildPhases = (
 				C73AFDD53032C74800B929B8 /* Sources */,
 				C73AFDD63032C74800B929B8 /* Frameworks */,
@@ -84,15 +101,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C73AFDDB3032C74800B929B8 /* NotesApp */,
+				C73AFDDB3032C74800B929B8 /* nudge */,
 			);
-			name = NotesApp;
+			name = nudge;
 			packageProductDependencies = (
 				C74E8F2D3043F0CF006A610B /* GoogleSignIn */,
 				C74E8F2F3043F0CF006A610B /* GoogleSignInSwift */,
 			);
 			productName = NotesApp;
-			productReference = C73AFDD93032C74800B929B8 /* NotesApp.app */;
+			productReference = C73AFDD93032C74800B929B8 /* nudge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C73AFDD43032C74800B929B8 /* Build configuration list for PBXProject "NotesApp" */;
+			buildConfigurationList = C73AFDD43032C74800B929B8 /* Build configuration list for PBXProject "nudge" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -127,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C73AFDD83032C74800B929B8 /* NotesApp */,
+				C73AFDD83032C74800B929B8 /* nudge */,
 			);
 		};
 /* End PBXProject section */
@@ -137,7 +154,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74E8F323043F117006A610B /* client_832211937583-53b0chrmr5bpcbgupmtad4dmfegctu2f.apps.googleusercontent.com.plist in Resources */,
+				C70E2D393060E3AB00393E61 /* .gitignore in Resources */,
+				C703DFCD305FCA070012A2FA /* Release.xcconfig in Resources */,
+				C70E2D3B3060E60100393E61 /* Secrets.xcconfig in Resources */,
+				C703DFCE305FCA070012A2FA /* Debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +297,7 @@
 		};
 		C73AFDE53032C74800B929B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C703DFCA305FCA070012A2FA /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -285,7 +306,8 @@
 				DEVELOPMENT_TEAM = 67QBUN9S8Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotesApp/Info.plist;
+				INFOPLIST_FILE = nudge/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate to access your secure data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,6 +333,7 @@
 		};
 		C73AFDE63032C74800B929B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C703DFCB305FCA070012A2FA /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,7 +342,8 @@
 				DEVELOPMENT_TEAM = 67QBUN9S8Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotesApp/Info.plist;
+				INFOPLIST_FILE = nudge/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate to access your secure data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C73AFDD43032C74800B929B8 /* Build configuration list for PBXProject "NotesApp" */ = {
+		C73AFDD43032C74800B929B8 /* Build configuration list for PBXProject "nudge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C73AFDE23032C74800B929B8 /* Debug */,
@@ -355,7 +379,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C73AFDE43032C74800B929B8 /* Build configuration list for PBXNativeTarget "NotesApp" */ = {
+		C73AFDE43032C74800B929B8 /* Build configuration list for PBXNativeTarget "nudge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C73AFDE53032C74800B929B8 /* Debug */,

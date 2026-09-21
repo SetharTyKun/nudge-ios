@@ -1,23 +1,26 @@
-## User-specific Xcode state
+# Xcode
 xcuserdata/
-
-## Xcode project internals worth excluding
+*.xcuserstate
 *.xcscmblueprint
-*.xccheckout
-
-## Build artifacts
 DerivedData/
-build/
-*.ipa
-*.dSYM.zip
-*.dSYM
-
-## Swift Package Manager
-.swiftpm/
 .build/
 
-## CocoaPods (only relevant if you ever use it — safe to include either way)
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# CocoaPods (only if you ever add it)
 Pods/
 
-## macOS system files
+# Secrets / environment-specific config
+Configs/Secrets.xcconfig
+
+# Google Sign-In config (if you ever re-add a standalone client plist)
+GoogleService-Info.plist
+client_*.googleusercontent.com.plist
+
+# macOS
 .DS_Store
+
+# Simulator/device logs (optional, if they ever clutter the repo)
+*.ips

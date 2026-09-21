@@ -72,7 +72,7 @@ struct NotesView: View {
                                             }
                                             .opacity(0)
                                         }
-                                        .swipeActions(edge: .trailing) {
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                                             // Delete Button
                                             Button(role: .destructive) {
                                                 noteToDelete = note
@@ -84,7 +84,7 @@ struct NotesView: View {
                                             // Complete Button
                                             Button {
                                                 if case .loaded(var currentNotes) = notesViewModel.state,
-                                                       let index = currentNotes.firstIndex(where: { $0.id == note.id }) {
+                                                    let index = currentNotes.firstIndex(where: { $0.id == note.id }) {
                                                         currentNotes[index].isCompleted.toggle()
                                                         notesViewModel.state = .loaded(currentNotes)
                                                     }
@@ -160,7 +160,7 @@ struct NotesView: View {
                                             }
                                             .opacity(0)
                                         }
-                                        .swipeActions(edge: .trailing) {
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                                             Button(role: .destructive) {
                                                 noteToDelete = note
                                                 showDeleteConfirmation = true

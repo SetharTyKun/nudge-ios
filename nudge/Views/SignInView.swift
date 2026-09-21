@@ -26,7 +26,7 @@ struct SignInView: View {
                 
                 Text("Welcome to Nudge")
                     .foregroundStyle(.primary)
-                    .font(.system(size: 28, weight: .bold))
+                    .font(.largeTitle.bold())
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 Spacer()
@@ -34,15 +34,20 @@ struct SignInView: View {
                 
                 Text("Some thoughts only knock once. Nudge makes")
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundStyle(.primary)
+                    .font(.subheadline)
                 Text("sure you're there to answer.")
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundStyle(.primary)
+                    .font(.subheadline)
                 
                 Spacer()
                     .frame(height: 48)
                 
                 Text("Username".uppercased())
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 8)
@@ -50,7 +55,7 @@ struct SignInView: View {
                 TextField("Username or email", text: $username)
                     .frame(height: 30)
                     .textInputAutocapitalization(.never)
-                    .padding(12)
+                    .padding(10)
                     .background(Color(uiColor: .secondarySystemGroupedBackground))
                     .cornerRadius(16)
                     .overlay(
@@ -66,7 +71,8 @@ struct SignInView: View {
                 
                 Text("Password".uppercased())
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                     .frame(height: 8)
@@ -82,7 +88,7 @@ struct SignInView: View {
                 }
                 .frame(height: 30)
                 .textInputAutocapitalization(.never)
-                .padding(12)
+                .padding(10)
                 .background(Color(uiColor: .secondarySystemGroupedBackground))
                 .cornerRadius(16)
                 .overlay(
@@ -96,7 +102,9 @@ struct SignInView: View {
                         seePassword.toggle()
                     } label: {
                         Image(systemName: seePassword ? "eye" : "eye.slash")
-                            .padding(.trailing, 12)
+                            .resizable()
+                            .frame(width: 20, height: 15)
+                            .padding(.trailing, 16)
                             .tint(.secondary)
                     }
                 }
@@ -106,7 +114,6 @@ struct SignInView: View {
 
             
                 Button {
-                    
                     Task {
                         do {
                             try validateSignIn(username, password)
@@ -118,10 +125,10 @@ struct SignInView: View {
                             showError = true
                         }
                     }
-            
                 } label: {
                     Text("Sign In")
                         .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(12)
@@ -155,13 +162,15 @@ struct SignInView: View {
                     .frame(height: 16)
                 
                 Button {
-                    
+                    signInWithGoogle()
                 } label: {
                     HStack {
+                        Spacer()
                         Image("GoogleIcon")
                             .resizable()
                             .frame(width: 25, height: 25)
                         Spacer()
+                            .frame(width: 16)
                         Text("Continue with Google")
                             .foregroundStyle(.black)
                         Spacer()
@@ -183,6 +192,8 @@ struct SignInView: View {
                 
                 HStack {
                     Text("Don't have an account?")
+                        .foregroundStyle(.primary)
+                        .font(.subheadline)
                     Button("Sign Up") {
                         username = ""
                         password = ""
@@ -212,6 +223,37 @@ struct SignInView: View {
         }
         
     }
+    
+    
+    private func signInWithGoogle() {
+        guard let rootViewController = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .first?.windows.first?.rootViewController else {
+            return
+        }
+        
+        GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: Config.googleClientID)
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { result, error in
+            if let error = error {
+                print("Google Sign-In error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let idToken = result?.user.idToken?.tokenString else {
+                return
+            }
+            
+            Task { @MainActor in
+                do {
+                    try await authViewModel.loginWithGoogle(idToken)
+                } catch {
+                    errorMessage = error.localizedDescription
+                    showError = true
+                }
+            }
+        }
+    }
 }
 
 private enum Field {
@@ -227,25 +269,4 @@ private enum Field {
         .environment(AuthViewModel())
 }
 
-private func signInWithGoogle() {
-    guard let rootViewController = UIApplication.shared.connectedScenes
-        .compactMap({ $0 as? UIWindowScene })
-        .first?.windows.first?.rootViewController else {
-        return
-    }
-    
-    GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { result, error in
-        if let error = error {
-            print("Google Sign-In error: \(error.localizedDescription)")
-            return
-        }
-        
-        guard let idToken = result?.user.idToken?.tokenString else {
-            print("No ID token returned")
-            return
-        }
-        
-        // Next step: send this idToken to your FastAPI backend
-        print("Got ID token: \(idToken)")
-    }
-}
+

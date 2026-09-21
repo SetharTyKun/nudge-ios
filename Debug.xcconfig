@@ -1,0 +1,11 @@
+//
+//  Debug.xcconfig
+//  NotesApp
+//
+//  Created by Sethar TyKun on 12/9/26.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+API_BASE_URL=https:/$()/web-production-e6121e.up.railway.app
+

@@ -1,6 +1,5 @@
 //
-//  NotesAppApp.swift
-//  NotesApp
+//  nudgeApp.swift
 //
 //  Created by Sethar TyKun on 17/8/26.
 //
@@ -9,7 +8,7 @@ import SwiftUI
 import GoogleSignIn
 
 @main
-struct NotesAppApp: App {
+struct nudgeApp: App {
     @State private var authViewModel: AuthViewModel
     @State private var notesViewModel: NotesViewModel
     
@@ -22,6 +21,7 @@ struct NotesAppApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .preferredColorScheme(.dark)
                 .environment(authViewModel)
                 .environment(notesViewModel)
                 .onOpenURL { url in

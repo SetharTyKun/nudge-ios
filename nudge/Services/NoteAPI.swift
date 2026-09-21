@@ -12,7 +12,7 @@
 import Foundation
 
 class NoteAPI {
-    static private let baseURL = "https://web-production-e6121e.up.railway.app"
+    static private let baseURL = Config.baseURL
     
     // Register
     static func register(_ user: UserCreate) async throws -> UserResponse {
@@ -57,6 +57,31 @@ class NoteAPI {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         // Shape of Data: "username=sethartykun&password=12345678"
         request.httpBody = "username=\(username)&password=\(password)".data(using: .utf8)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw URLError(.badServerResponse)
+        }
+        
+        guard (200...299).contains(httpResponse.statusCode) else {
+            if let apiError = try? JSONDecoder().decode(APIErrorResponse.self, from: data) {
+                throw APIError.server(apiError.detail)
+            }
+            throw APIError.unknown
+        }
+        
+        return try JSONDecoder().decode(Token.self, from: data)
+    }
+    
+    static func loginWithGoogle(_ idToken: String) async throws -> Token {
+        let url = URL(string: baseURL + "/users/google-login")
+        guard let url else { throw URLError(.badURL) }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONEncoder().encode(["id_token": idToken])
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
